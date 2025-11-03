@@ -1,4 +1,4 @@
-const apiBase = "http://localhost:2121/api/products"
+const apiBase = "http://localhost:1111/api/products"
 
 document.addEventListener("DOMContentLoaded", fetchProducts)
 
