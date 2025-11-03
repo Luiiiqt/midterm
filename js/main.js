@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", fetchProducts)
 function fetchProducts() {
     fetch(apiBase)
         .then(res => res.json())
-        .then(cars => {
+        .then(products => {
             const body = document.getElementById("productTableBody")
             body.innerHTML = ""
             var counter = 0;
@@ -20,7 +20,7 @@ function fetchProducts() {
                 <td class="border p-2">${product.price}</td>
                 <td class="border p-2">
                   <button onclick="openEditModal(${product.id}, '${product.name}', '${product.description}', ${product.stock}, '${product.unit}', '${product.price}')" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</button>
-                  <button onclick="deleteCar(${product.id})" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                  <button onclick="deleteProduct(${product.id})" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
                 </td>
               </tr>`
             })
@@ -71,14 +71,14 @@ function saveProduct(e) {
         .then(res => res.json())
         .then(() => {
             closeModal()
-            fetchCars()
+            fetchProducts()
         })
         .catch(err => console.error(err))
 }
 
-function deleteCar(id) {
+function deleteProduct(id) {
     if (!confirm("Delete this product?")) return
     fetch(`${apiBase}/${id}`, { method: "DELETE" })
-        .then(() => fetchCars())
+        .then(() => fetchProducts())
         .catch(err => console.error(err))
 }
