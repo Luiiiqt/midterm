@@ -35,11 +35,11 @@ public class ProductService {
     }
 
     public Product updateProduct(Product product, ProductDTO productDTO){
-        product.setName(ProductDTO.getName());
-        product.setDescription(ProductDTO.getDescription());
-        product.setStock(ProductDTO.getStock());
-        product.setUnit(ProductDTO.getUnit());
-        product.setPrice(ProductDTO.getPrice());
+        product.setName(productDTO.getName());
+        product.setDescription(productDTO.getDescription());
+        product.setStock(productDTO.getStock());
+        product.setUnit(productDTO.getUnit());
+        product.setPrice(productDTO.getPrice());
         return repository.save(product);
     }
 

@@ -9,18 +9,18 @@ public class ProductDTO{
         @NotBlank(message = "Make is required")
         private String name;
 
-        @NotBlank
+        @NotBlank(message = "Make is required")
         private String description;
 
         @Min(1)
-        @NotBlank
+        @NotBlank(message = "Make is required")
         private int stock;
 
-        @NotBlank
+        @NotBlank(message = "Make is required")
         private String unit;
 
         @Min(1)
-        @NotBlank
+        @NotBlank(message = "Make is required")
         private double price;
 
     public int getId() {
